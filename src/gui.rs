@@ -33,6 +33,8 @@ impl BrowseApp {
 
 impl epi::App for BrowseApp {
     fn update(&mut self, ctx: &eframe::egui::CtxRef, frame: &mut eframe::epi::Frame<'_>) {
+        catppuccin_egui::set_theme(&ctx, catppuccin_egui::MOCHA);
+
         // Poll the packet stream for new data, and update the hosts list accordingly
         for packet in self.packet_stream.try_iter() {
             match packet.mode {
